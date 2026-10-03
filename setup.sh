@@ -17,7 +17,7 @@ command_exists() {
 echo "==> Checking dependencies..."
 
 # DankMaterialShell
-if ! command_exists dank; then
+if ! command_exists dms; then
   echo "--> Installing DankMaterialShell..."
   curl -fsSL https://install.danklinux.com | sh
 else
@@ -71,13 +71,13 @@ case "$choice" in
       echo "Error: cargo is required to build NiflVeil. Please install rust/cargo first."
     else
       TEMP_DIR=$(mktemp -d)
-      git clone https://github.com/Mauitron/NiflVeil.git "$TEMP_DIR"
-      cd "$TEMP_DIR/niflveil"
+      git clone https://github.com/Mauitron/NiflVeil.git
+      cd NiflVeil/niflveil
       cargo build --release
       sudo cp target/release/niflveil /usr/local/bin/
-      cd "$DOTFILES_DIR"
-      rm -rf "$TEMP_DIR"
-      echo "--> NiflVeil installation complete."
+      cd ~
+      rm -rf NiflVeil
+      echo "--> NiflVeil has successfully been installed."
     fi
     ;;
   * )
