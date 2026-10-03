@@ -1,0 +1,22 @@
+{
+  "lockfileVersion": 1,
+  "plugins": {
+    "cavaVisualizer": {
+      "repo": "https://github.com/ernestowgg/cava-visualizer",
+      "commit": "2d08bef95bc7cd170ad5730a27791c9af6d80a52"
+    },
+    "dankGifSearch": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankGifSearch",
+      "commit": "6fc7f25bfb24f93b6488fb8a36ed67b5f242abdb"
+    },
+    "emojiPicker": {
+      "repo": "https://github.com/hthienloc/dms-emoji-picker",
+      "commit": "dca1751fa8086098edd552e1299ad3caeff3cc07"
+    },
+    "modernClock": {
+      "repo": "https://github.com/beefsizzle/ModernClockDMS",
+      "commit": "0d11d9fb560547a2589d59e456598f7c94847bae"
+    }
+  }
+}

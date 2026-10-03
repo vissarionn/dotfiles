@@ -1,0 +1,59 @@
+{
+  "emojiPicker": {
+    "enabled": true,
+    "pickerSize": "560"
+  },
+  "wallpaperCarousel": {
+    "enabled": false,
+    "borderWidth": 2,
+    "cacheSize": 40,
+    "holdExpandRatio": 38,
+    "overlayOpacity": 74,
+    "selectedScale": 107,
+    "expandMultiplier": 124
+  },
+  "dankGifSearch": {
+    "enabled": true
+  },
+  "linuxWallpaperEngine": {
+    "enabled": false,
+    "namedPlaylists": {
+      "Default": []
+    },
+    "backgroundsDir": "/home/darius/Downloads/Rice Files/Wallpapers/",
+    "outputSettings": {
+      "eDP-1": {
+        "fps": 35
+      }
+    },
+    "activeType": "scene"
+  },
+  "mpvpaper": {
+    "enabled": true,
+    "videoLibrary": [
+      "/home/darius/Downloads/Rice Files/Wallpapers/forest.mp4"
+    ]
+  },
+  "mpvpaperWallpaper": {
+    "enabled": false,
+    "monitorPaths": {
+      "eDP-1": "/home/darius/Downloads/Rice Files/Wallpapers/forest.mp4"
+    },
+    "allMonitors": true,
+    "allMonitorsPath": "/home/darius/Downloads/Rice Files/Wallpapers/forest.mp4",
+    "panscanValue": 0.99,
+    "autoPause": true
+  },
+  "audioFx": {
+    "enabled": true,
+    "edge": "bottom"
+  },
+  "clipboardPlus": {
+    "enabled": true,
+    "tabOrder": "clipboard,search,category,pinned,todo,emoji",
+    "tabOrderEnabled": "clipboard,search,category,pinned,todo,emoji",
+    "autoPasteOnClick": true,
+    "useDmsClipboard": true,
+    "listenClipboardWhileOpen": false
+  }
+}

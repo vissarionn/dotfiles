@@ -1,0 +1,162 @@
+configuration {
+    modi: "drun,filebrowser";
+    show-icons: true;
+    drun-display-format: "{name}";
+    font: "Tengoku 10";
+
+    // Custom names for the mode switcher tabs
+    display-drun: "Apps";
+    display-filebrowser: "Files";
+
+    filebrowser {
+        directory: "~";
+        show-hidden: true;
+    }
+}
+
+@theme "~/.config/rofi/colors.rasi"
+
+* {
+    background-color: #151815;
+    text-color: #2596be;
+    border-color: #b1d18a;
+    background: #2596be;
+    foreground: #ffffff;
+}
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 500px;
+    x-offset: 0px;
+    y-offset: 0px;
+
+    enabled: true;
+    margin: 0px;
+    padding: 0px;
+    border: 2px solid;
+    border-color: @border-color;
+    border-radius: 2px;
+    background-color: #151815EE;
+}
+
+mainbox {
+    enabled: true;
+    spacing: 10px;
+    margin: 0px;
+    padding: 20px;
+    border: 0px;
+    background-color: transparent;
+    children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+    enabled: true;
+    spacing: 10px;
+    margin: 0px;
+    padding: 10px;
+    border: 0px 0px 1px 0px;
+    border-color: #d3d3d3;
+    background-color: #151815;
+    text-color: #ffffff;
+    /* "prompt" has been removed here so it no longer shows the mode text */
+    children: [ "entry", "mode-switcher" ];
+}
+
+prompt {
+    enabled: false;
+    background-color: transparent;
+    text-color: #ffffff;
+}
+
+entry {
+    enabled: true;
+    background-color: transparent;
+    text-color: #ffffff;
+    cursor: text;
+    cursor-width: 0px;
+    placeholder: "Search";
+    placeholder-color: #555555;
+}
+
+mode-switcher {
+    enabled: true;
+    background-color: transparent;
+    text-color: #ffffff;
+    spacing: 5px;
+}
+
+button {
+    background-color: transparent;
+    text-color: #555555;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 2px 4px;
+}
+
+button selected {
+    background-color: #ffffff;
+    text-color: #000000;
+}
+
+listview {
+    enabled: true;
+    columns: 1;
+    lines: 10;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+
+    spacing: 5px;
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+    text-color: #ffffff;
+}
+
+element {
+    enabled: true;
+    spacing: 10px;
+    margin: 0px;
+    padding: 8px 12px;
+    border: 0px;
+    border-radius: 2px;
+    background-color: transparent;
+    text-color: #ffffff;
+    cursor: pointer;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: #ffffff;
+}
+
+element selected.normal {
+    background-color: #ffffff;
+    text-color: #000000;
+    border-radius: 2px;
+}
+
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 24px;
+    cursor: inherit;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+}
+// Skwd app theme
+@import "skwd-colors.rasi"
+// End Skwd app theme

@@ -1,0 +1,63 @@
+{
+  "components": {
+    "wallpaperSelector": {
+      "cornerBL": 2,
+      "cornerBR": 2,
+      "cornerTL": 2,
+      "cornerTR": 2,
+      "displayMode": "slices",
+      "enabled": true,
+      "flipEffect": "Ignite",
+      "gridLayout": "masonry",
+      "handMove": "cycle",
+      "hexCurve": "cylinder",
+      "roundCorners": true,
+      "sliceEdgeTilt": 3,
+      "sliceSpacing": 0,
+      "sliceWidth": 100,
+      "sliceWobble": false,
+      "sliceWobbleStrength": 5,
+      "tagCloudRows": "2"
+    }
+  },
+  "dms": {
+    "hoverPreview": true
+  },
+  "features": {
+    "matugen": true
+  },
+  "filterBar": {
+    "orientation": "horizontal",
+    "visualStyle": "wall"
+  },
+  "general": {
+    "randomRotate": false
+  },
+  "launch": {
+    "animation": "fade"
+  },
+  "paths": {
+    "wallpaper": "~/.dotfiles/wallpapers"
+  },
+  "sources": {
+    "youtube": {
+      "enabled": true
+    }
+  },
+  "theme": {
+    "authority": "dms",
+    "engine": "matugen",
+    "policy": "wallpaper",
+    "targets": [
+      "dms"
+    ]
+  },
+  "transition": {
+    "shader": "pixelfade-wave"
+  },
+  "wallhaven": {
+    "defaults": {
+      "nsfw": true
+    }
+  }
+}
