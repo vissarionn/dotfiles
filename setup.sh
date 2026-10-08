@@ -1,74 +1,77 @@
 #!/usr/bin/env bash
 
-set -e # Exit immediately if a command exits with a non-zero status
+r='\033[0;31m'
+g='\033[0;32m'
+y='\033[1;33m'
+b='\033[0;34m'
+nc='\033[0m'
 
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+set -e
 
 echo "==> Starting Dotfiles Setup..."
 
-# Helper function to check if a command exists
 command_exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
-# -----------------------------------------------------------------------------
-# 1. Dependency Checks & Installations
-# -----------------------------------------------------------------------------
 echo "==> Checking dependencies..."
 
-# DankMaterialShell
 if ! command_exists dms; then
-  echo "--> Installing DankMaterialShell..."
+  echo "${g}--> Installing DankMaterialShell...${nc}"
   curl -fsSL https://install.danklinux.com | sh
 else
-  echo "--> DankMaterialShell is already installed."
+  echo "${g}--> DankMaterialShell is already installed.${nc}"
 fi
 
-# Hyprland
 if ! command_exists Hyprland; then
-  echo "--> Installing Hyprland..."
+  echo "${g}--> Installing Hyprland...${nc}"
   yay -S --needed hyprland
 else
-  echo "--> Hyprland is already installed."
+  echo "${g}--> Hyprland is already installed.${nc}"
 fi
 
-# Rofi
 if ! command_exists rofi; then
-  echo "--> Installing Rofi (rofi-wayland)..."
+  echo "${g}--> Installing Rofi (rofi-wayland)...${nc}"
   yay -S --needed rofi-wayland
 else
-  echo "--> Rofi is already installed."
+  echo "${g}--> Rofi is already installed.${nc}"
 fi
 
-# skwd-wall-v2
 if ! command_exists skwd-walld; then
-  echo "--> Installing skwd-wall-v2..."
+  echo "${g}--> Installing skwd-wall-v2...${nc}"
   yay -S --needed skwd-wall-v2-bin skwd-lens-bin
 
-  echo "--> Enabling skwd-walld user service..."
+  echo "${g}--> Enabling skwd-walld user service...${nc}"
   systemctl --user daemon-reload
   systemctl --user enable --now skwd-walld.service
 else
-  echo "--> skwd-wall-v2 is already installed."
+  echo "${g}--> skwd-wall-v2 is already installed.${nc}"
 fi
 
-# SDDM
 if ! command_exists sddm; then
-  echo "--> Installing SDDM..."
+  echo "${g}--> Installing SDDM...${nc}"
   yay -S --needed sddm
 else
-  echo "--> SDDM is already installed."
+  echo "${g}--> SDDM is already installed.${nc}"
 fi
 
-# -----------------------------------------------------------------------------
-# 2. Optional Dependency: NiflVeil
-# -----------------------------------------------------------------------------
-read -p "Do you want to install NiflVeil? (y/N): " choice
+if [ ! -d "$HOME/qylock" ]; then
+  echo "${g}--> Installing qylock SDDM theme...${nc}"
+  git clone https://github.com/Darkkal44/qylock/ "$HOME/qylock"
+  pushd "$HOME/qylock" > /dev/null
+  chmod +x sddm.sh
+  ./sddm.sh
+  popd > /dev/null
+else
+  echo "${g}--> qylock SDDM theme is already installed.${nc}"
+fi
+
+read -p "${b}Do you want to install NiflVeil? (y/N): ${nc}" choice
 case "$choice" in
   y|Y )
-    echo "--> Installing NiflVeil..."
+    echo "${g}--> Installing NiflVeil...${nc}"
     if ! command_exists cargo; then
-      echo "Error: cargo is required to build NiflVeil. Please install rust/cargo first."
+      echo "${r}Error: cargo is required to build NiflVeil. Please install rust/cargo first.${nc}"
     else
       TEMP_DIR=$(mktemp -d)
       git clone https://github.com/Mauitron/NiflVeil.git
@@ -77,58 +80,48 @@ case "$choice" in
       sudo cp target/release/niflveil /usr/local/bin/
       cd ~
       rm -rf NiflVeil
-      echo "--> NiflVeil has successfully been installed."
+      echo "${g}--> NiflVeil has successfully been installed.${nc}"
     fi
     ;;
   * )
-    echo "--> Skipping NiflVeil installation."
+    echo "${g}--> Skipping NiflVeil installation.${nc}"
     ;;
 esac
 
-# -----------------------------------------------------------------------------
-# 3. Copy User Configs (Replaces existing configs in ~/.config)
-# -----------------------------------------------------------------------------
-echo "==> Copying application configurations to ~/.config..."
-mkdir -p ~/.config
+echo "${b}==> Copying application configurations to ~/.config...${nc}"
 
 CONFIG_TARGETS=("DankMaterialShell" "kitty" "rofi" "hypr" "skwd-wall-v2" "fastfetch")
 
 for cfg in "${CONFIG_TARGETS[@]}"; do
-  if [ -d "$DOTFILES_DIR/configs/$cfg" ] || [ -f "$DOTFILES_DIR/configs/$cfg" ]; then
-    echo "--> Replacing ~/.config/$cfg..."
+  if [ -d "$HOME/dotfiles/configs/$cfg" ] || [ -f "$HOME/dotfiles/configs/$cfg" ]; then
+    echo "${b}--> Replacing ~/.config/$cfg...${nc}"
     rm -rf "$HOME/.config/$cfg"
-    cp -r "$DOTFILES_DIR/configs/$cfg" "$HOME/.config/"
+    cp -r "$HOME/dotfiles/configs/$cfg" "$HOME/.config/"
   else
-    echo "--> Warning: $DOTFILES_DIR/configs/$cfg not found, skipping."
+    echo "${r}--> Warning: $HOME/dotfiles/configs/$cfg not found, skipping.${nc}"
   fi
 done
 
-# -----------------------------------------------------------------------------
-# 4. Copy System Assets (Requires Sudo)
-# -----------------------------------------------------------------------------
-echo "==> Copying system assets (requires root permissions)..."
+echo "${b}==> Copying system assets (requires root permissions)...${nc}"
 
-# Fontconfig
-if [ -d "$DOTFILES_DIR/fontconfig" ]; then
-  echo "--> Replacing /usr/share/fontconfig..."
+if [ -d "$HOME/dotfiles/fontconfig" ]; then
+  echo "${b}--> Replacing /usr/share/fontconfig...${nc}"
   sudo rm -rf /usr/share/fontconfig
-  sudo cp -r "$DOTFILES_DIR/fontconfig" /usr/share/
+  sudo cp -r "$HOME/dotfiles/fontconfig" /usr/share/
 fi
 
-# Fonts
-if [ -d "$DOTFILES_DIR/fonts" ]; then
-  echo "--> Copying fonts to /usr/share/fonts..."
+if [ -d "$HOME/dotfiles/fonts" ]; then
+  echo "${b}--> Copying fonts to /usr/share/fonts...${nc}"
   sudo mkdir -p /usr/share/fonts
-  sudo cp -r "$DOTFILES_DIR/fonts/." /usr/share/fonts/
+  sudo cp -r "$HOME/dotfiles/fonts/." /usr/share/fonts/
   sudo fc-cache -fv
 fi
 
-# SDDM Themes
-if [ -d "$DOTFILES_DIR/sddm_themes" ]; then
-  echo "--> Copying SDDM themes to /usr/share/sddm/themes..."
+if [ -d "$HOME/dotfiles/sddm_themes" ]; then
+  echo "${b}--> Copying SDDM themes to /usr/share/sddm/themes...${nc}"
   sudo mkdir -p /usr/share/sddm/themes
-  sudo cp -r "$DOTFILES_DIR/sddm_themes/." /usr/share/sddm/themes/
+  sudo cp -r "$HOME/dotfiles/sddm_themes/." /usr/share/sddm/themes/
 fi
 
-echo "==> Setup completed successfully!"
-echo "Please reboot for all changes to apply."
+echo "${g}==> Setup completed successfully!${nc}"
+echo "${g}Please reboot for all changes to apply.${nc}"
