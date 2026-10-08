@@ -60,6 +60,7 @@ Here is an example:
 
 ```bash
 >>xrandr
+
 Screen 0: minimum 16 x 16, current 1920 x 1080, maximum 32767 x 32767
 eDP-1 connected 1920x1080+0+0 (normal left inverted right x axis y axis) 340mm x 190mm
    1920x1080     59.96*+
@@ -93,20 +94,7 @@ eDP-1 connected 1920x1080+0+0 (normal left inverted right x axis y axis) 340mm x
 ```
 Here, `eDP-1` is my momitor.
 
-After you change it, save and exit. You may also change your resolution and refresh rate.
-
-### Manual Symlinks (Alternative)
-
-If you prefer to manually create symlinks from your home directory pointing to this repository:
-
-```bash
-# Link main dotfiles
-ln -sf ~/.dotfiles/.zshrc ~/.zshrc
-ln -sf ~/.dotfiles/.gitconfig ~/.gitconfig
-
-# Link .rice directory
-ln -sF ~/.dotfiles/.rice ~/.rice
-```
+After you change it, save and exit. You may also change your resolution and refresh rate if you want to.
 
 ## Keybindings
 
