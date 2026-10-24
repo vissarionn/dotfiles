@@ -52,7 +52,7 @@ Step 1: Open ~/.config/hypr/config/monitors.lua in a text editor of your choice 
 Step 2: Change the `output` part of the code to match your monitor's name. If you don't know what your monitor is named, open a terminal and enter:
 
 ```bash
-xrandr
+wlr-randr
 ```
 It should show up in the output.
 
