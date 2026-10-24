@@ -59,38 +59,19 @@ It should show up in the output.
 Here is an example:
 
 ```bash
->>xrandr
-
-Screen 0: minimum 16 x 16, current 1920 x 1080, maximum 32767 x 32767
-eDP-1 connected 1920x1080+0+0 (normal left inverted right x axis y axis) 340mm x 190mm
-   1920x1080     59.96*+
-   1440x1080     59.99
-   1400x1050     59.98
-   1280x1024     59.89
-   1280x960      59.94
-   1152x864      59.96
-   1024x768      59.92
-   800x600       59.86
-   640x480       59.38
-   320x240       59.29
-   1680x1050     59.95
-   1440x900      59.89
-   1280x800      59.81
-   1152x720      59.97
-   960x600       59.63
-   928x580       59.88
-   800x500       59.50
-   768x480       59.90
-   720x480       59.71
-   640x400       59.95
-   320x200       58.14
-   1600x900      59.95
-   1368x768      59.88
-   1280x720      59.86
-   1024x576      59.90
-   864x486       59.92
-   720x400       59.27
-   640x350       59.28
+> wlr-randr
+eDP-1 "BOE 0x09EF  (eDP-1)"
+  Make: BOE
+  Model: 0x09EF
+  Physical size: 340x190 mm
+  Enabled: yes
+  Modes:
+    1920x1080 px, 60.000999 Hz (preferred, current)
+    1920x1080 px, 48.001999 Hz
+  Position: 0,0
+  Transform: normal
+  Scale: 1.000000
+  Adaptive Sync: disabled
 ```
 Here, `eDP-1` is my momitor.
 
