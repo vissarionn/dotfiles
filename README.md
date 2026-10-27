@@ -95,7 +95,7 @@ After you change it, save and exit. You may also change your resolution and refr
 
 > **Note:** You can also change these keybinds in ~/.config/hypr/dms/binds.lua or via the DankMaterialShell settings menu.
 
-##Credits
+## Credits
 
 - DankMaterialShell (Now Dux): https://duxlabs.dev
 - Rofi: https://github.com/davatorium/rofi
