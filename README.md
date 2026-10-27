@@ -11,7 +11,7 @@ Custom configs include configs for:
 - Rofi (Both an application menu and a power menu)
 - Kitty
 - Fastfetch
-- SDDM (The lock screen, comes with only one theme)
+- SDDM (The lock screen, comes with only one theme, provided by qylock)
 
 It also comes with a bunch of fonts and wallpapers (both static and animated) you can use.
 
@@ -21,7 +21,7 @@ It also comes with a bunch of fonts and wallpapers (both static and animated) yo
 - Rofi
 - Kitty
 - Fastfetch
-- skwd-wall-v2
+- skwd-wall
 - SDDM
 
 Optional: Niflveil (For minimising windows. Find it here: https://github.com/Mauitron/NiflVeil or simply accept when the setup script asks you if you want to install it)
@@ -94,3 +94,14 @@ After you change it, save and exit. You may also change your resolution and refr
 | `Ctrl` + `Shift` + `S` | Settings menu (DankMaterialShell) |
 
 > **Note:** You can also change these keybinds in ~/.config/hypr/dms/binds.lua or via the DankMaterialShell settings menu.
+
+##Credits
+
+- DankMaterialShell (Now Dux): https://duxlabs.dev
+- Rofi: https://github.com/davatorium/rofi
+- Kitty: https://github.com/kovidgoyal/kitty
+- Fastfetch: https://github.com/fastfetch-cli/fastfetch
+- skwd-wall: https://github.com/liixini/skwd-wall
+- SDDM: https://github.com/sddm/sddm
+- qylock (The SDDM theme): https://github.com/Darkkal44/qylock
+- NiflVeil: https://github.com/Mauitron/NiflVeil
