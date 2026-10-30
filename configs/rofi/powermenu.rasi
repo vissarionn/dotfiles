@@ -9,48 +9,46 @@ configuration {
 }
 
 window {
-    width:            320px;
-    background-color: @background;
-    border:           2px;
-    border-color:     @border-color;
-    border-radius:    2px;
-    padding:          16px;
+    fullscreen:       true;
+    background-color: #23262980; /* Alpha 80 (~50% opacity) for transparency */
     location:         center;
     anchor:           center;
 }
 
 mainbox {
     children:         [ listview ];
+    spacing:          0;
+    padding:          350 500;
 }
 
 listview {
+    columns:          1;
     lines:            5;
-    spacing:          8px;
+    spacing:          24;
     cycle:            true;
-    dynamic:          true;
-    border:           0px;
+    dynamic:          false;
+    scrollbar:        false;
+    border:           0;
 }
 
 element {
-    padding:          10px 14px;
-    border-radius:    2px;
-    background-color: #171811;
-    text-color:       #d0d0d0;
-    border:           0px;
+    padding:          8 0;
+    background-color: transparent;
+    text-color:       #a0a0a0;
+    border:           0;
 }
 
 element selected {
-    background-color: #171811;
-    text-color:       #ffffff;
-    border:           1px;
-    border-color:     @border-color;
+    background-color: transparent;
+    text-color:       @border-color;
+    border:           0;
 }
 
 element-text {
     background-color: transparent;
     text-color:       inherit;
     vertical-align:   0.5;
-
+    horizontal-align: 0.5;
 }
-@import "skwd-colors.rasi"
 
+@import "skwd-colors.rasi"
