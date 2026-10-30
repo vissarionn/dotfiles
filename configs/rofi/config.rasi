@@ -40,7 +40,6 @@ window {
     background-color: #151815EE;
 }
 
-/* Split the layout horizontally: Left side content, Right side Preview */
 mainbox {
     enabled:          true;
     orientation:      horizontal;
@@ -52,7 +51,6 @@ mainbox {
     children:         [ "left-box", "preview-box" ];
 }
 
-/* Left Box: Holds inputbar and app list */
 left-box {
     transparency:     "real";
     orientation:      vertical;
@@ -63,7 +61,6 @@ left-box {
     children:         [ "inputbar", "listview" ];
 }
 
-/* Right Box: Big app icon preview container */
 preview-box {
     transparency:     "real";
     orientation:      vertical;
